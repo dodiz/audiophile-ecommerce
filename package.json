@@ -1,0 +1,44 @@
+{
+  "name": "task-manager",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "check": "tsc --noEmit",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.35.3",
+    "@trpc/client": "^10.38.4",
+    "@trpc/next": "^10.38.4",
+    "@trpc/react-query": "^10.38.4",
+    "@trpc/server": "^10.38.4",
+    "@types/node": "20.6.0",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.15",
+    "classnames": "^2.3.2",
+    "cookies-next": "^4.0.0",
+    "dotenv": "^16.3.1",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.4.19",
+    "formik": "^2.4.5",
+    "next": "13.5.3",
+    "postcss": "8.4.29",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.2.2",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.2",
+    "zod-formik-adapter": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.4",
+    "sass": "^1.68.0",
+    "tsx": "^3.13.0",
+    "typescript-plugin-css-modules": "^5.0.1"
+  }
+}
