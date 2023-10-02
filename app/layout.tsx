@@ -1,12 +1,12 @@
 "use client";
 
 import { ReactNode } from "react";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { Header } from "@/components";
 import "@/styles/globals.css";
 import { QueryProvider } from "@/app/QueryProvider";
 
-const font = Plus_Jakarta_Sans({
+const font = Manrope({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
