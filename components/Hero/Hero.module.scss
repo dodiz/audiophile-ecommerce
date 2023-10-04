@@ -1,0 +1,43 @@
+@import "@/variables";
+@import "@/styles/_mixins.scss";
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-image: url("/images/mobile/hero.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include tablet() {
+    background-image: url("/images/tablet/hero.jpg");
+  }
+  @include desktop() {
+    background-size: cover;
+    background-image: url("/images/desktop/hero.jpg");
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.8rem;
+    width: 100%;
+    max-width: 111rem;
+    .overline {
+      color: $secondary-100;
+      opacity: 0.5;
+    }
+    .title {
+      color: $secondary-100;
+      width: 40rem;
+    }
+    .subtitle {
+      color: $secondary-100;
+      width: 35rem;
+      opacity: 0.75;
+      line-height: 2.5rem;
+    }
+  }
+}

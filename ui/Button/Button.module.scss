@@ -1,0 +1,31 @@
+@import "@/variables";
+@import "@/styles/_mixins.scss";
+
+.button {
+  user-select: none;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  padding: 1.5rem 3.15rem;
+  &.primary {
+    background-color: $primary-200;
+    color: $secondary-100;
+    &:hover {
+      background-color: $primary-100;
+    }
+  }
+  .secondary {
+    background-color: rgba($primary-200, 0.1);
+    color: $primary-200;
+    &:hover {
+      background-color: rgba($primary-200, 0.25);
+    }
+  }
+  .tertiary {
+    background-color: transparent;
+    color: $primary-200;
+  }
+}
