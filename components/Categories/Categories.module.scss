@@ -17,23 +17,19 @@
   .box {
     border-radius: 0.8rem;
     background: $secondary-300;
+    padding-bottom: 1rem;
     width: 35rem;
-    height: 20rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     .image {
       width: 18rem;
-      height: 16rem;
-      position: relative;
       margin-top: -6rem;
     }
     .label {
       text-align: center;
       font-weight: 700;
-      margin-top: 0rem;
-      margin-bottom: 2rem;
       text-transform: uppercase;
     }
   }
