@@ -1,5 +1,5 @@
-@import "@/variables";
-@import "@/styles/_mixins.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/_mixins.scss";
 
 .container {
   display: flex;
@@ -24,6 +24,7 @@
     align-items: center;
     .image {
       width: 18rem;
+      height: 16rem;
       position: relative;
       margin-top: -6rem;
     }
