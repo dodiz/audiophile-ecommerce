@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import classNames from "classnames";
 import { InputProps } from "./Input.types";
-import formStyles from "../Form.module.scss";
+import styles from "./Input.module.scss";
 
 export const Input: FC<InputProps> = ({
   label,
@@ -12,16 +12,9 @@ export const Input: FC<InputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
-    <label
-      className={classNames(formStyles.group, isFocused && formStyles.focus)}
-    >
-      {label && <h4 className={formStyles.label}>{label}</h4>}
-      <div
-        className={classNames(
-          formStyles.inputWrapper,
-          error && formStyles.error
-        )}
-      >
+    <label className={classNames(styles.group, isFocused && styles.focus)}>
+      {label && <h4 className={styles.label}>{label}</h4>}
+      <div className={classNames(styles.inputWrapper, error && styles.error)}>
         <input
           onFocus={(e) => {
             setIsFocused(true);
@@ -31,10 +24,10 @@ export const Input: FC<InputProps> = ({
             setIsFocused(false);
             onBlur && onBlur(e);
           }}
-          className={formStyles.input}
+          className={styles.input}
           {...rest}
         />
-        {error && <p className={formStyles.errorMessage}>{error}</p>}
+        {error && <p className={styles.errorMessage}>{error}</p>}
       </div>
     </label>
   );

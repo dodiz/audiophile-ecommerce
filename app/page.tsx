@@ -1,10 +1,13 @@
 import { FC } from "react";
-import { Hero } from "@/components";
+import { Categories, Hero } from "@/components";
 
 const Page: FC = () => {
   return (
     <>
       <Hero />
+      <div className="mt-20">
+        <Categories />
+      </div>
     </>
   );
 };
