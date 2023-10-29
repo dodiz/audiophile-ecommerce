@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import { Manrope } from "next/font/google";
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 import "@/styles/globals.css";
 import { QueryProvider } from "@/app/QueryProvider";
 
@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Header />
           {children}
         </QueryProvider>
+        <Footer />
       </body>
     </html>
   );
