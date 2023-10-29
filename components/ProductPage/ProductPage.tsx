@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { BestGear, Categories } from "@/components";
 import { useCart } from "@/hooks";
 import { Button, InputAmount, Typography } from "@/ui";
+import { formatPrice } from "@/utils";
 import styles from "./ProductPage.module.scss";
 import { ProductPageProps } from "./ProductPage.types";
 
@@ -36,7 +37,7 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
             <Typography variant="body" className={styles.description}>
               {product.description}
             </Typography>
-            <p className={styles.price}>$ {product.price}</p>
+            <p className={styles.price}>{formatPrice(product.price)}</p>
             <div className={styles.buttons}>
               <InputAmount min={1} onChange={setAmount} value={amount} />
               <Button

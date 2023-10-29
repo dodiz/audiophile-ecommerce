@@ -2,6 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import { useCart } from "@/hooks";
 import { Button, Dialog, InputAmount, Typography } from "@/ui";
+import { formatPrice } from "@/utils";
 import { CartDialogProps } from "./CartDialog.types";
 import styles from "./CartDialog.module.scss";
 
@@ -30,7 +31,7 @@ export const CartDialog: FC<CartDialogProps> = ({ onHide, show }) => {
                 </div>
                 <div>
                   <p className={styles.label}>{item.name}</p>
-                  <p className={styles.price}>$ {item.price}</p>
+                  <p className={styles.price}>{formatPrice(item.price)}</p>
                 </div>
               </div>
               <InputAmount
@@ -44,7 +45,9 @@ export const CartDialog: FC<CartDialogProps> = ({ onHide, show }) => {
         <div className={styles.total}>
           <p className={styles.label}>Total</p>
           <p className={styles.amount}>
-            $ {items.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+            {formatPrice(
+              items.reduce((acc, item) => acc + item.price * item.quantity, 0)
+            )}
           </p>
         </div>
         <Button href="/checkout" variant="primary" className={styles.checkout}>
