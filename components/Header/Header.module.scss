@@ -51,6 +51,10 @@
       }
     }
     .cartIcon {
+      cursor: pointer;
+      &:hover {
+        fill: $primary-200;
+      }
       @include tablet {
         margin-left: auto;
       }
