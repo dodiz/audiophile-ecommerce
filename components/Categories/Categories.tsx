@@ -35,7 +35,7 @@ export const Categories: FC = () => {
           <Typography variant="body" className={styles.label}>
             {category.label}
           </Typography>
-          <Button variant="tertiary">
+          <Button variant="tertiary" href={category.href}>
             Shop <ArrowRightIcon />
           </Button>
         </div>
