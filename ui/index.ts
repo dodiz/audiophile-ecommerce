@@ -6,3 +6,4 @@ export * from "./svg";
 export * from "./LoadingSpinner";
 export * from "./InputAmount";
 export * from "./Dialog";
+export * from "./Input";
