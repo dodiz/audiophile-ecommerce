@@ -4,7 +4,6 @@ import { ReactNode } from "react";
 import { Manrope } from "next/font/google";
 import { Footer, Header } from "@/components";
 import "@/styles/globals.css";
-import { QueryProvider } from "@/app/QueryProvider";
 
 const font = Manrope({
   subsets: ["latin"],
@@ -19,10 +18,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={font.className}>
-        <QueryProvider>
-          <Header />
-          {children}
-        </QueryProvider>
+        <Header />
+        {children}
         <Footer />
       </body>
     </html>
