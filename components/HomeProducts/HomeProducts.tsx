@@ -28,7 +28,9 @@ export const HomeProducts: FC = () => {
             truly remarkable sound
           </Typography>
           <div className={styles.button}>
-            <Button variant="secondary-reverse">SEE PRODUCT</Button>
+            <Button href="/products/zx9-speaker" variant="secondary-reverse">
+              SEE PRODUCT
+            </Button>
           </div>
         </div>
       </div>
@@ -43,7 +45,9 @@ export const HomeProducts: FC = () => {
             ZX7 SPEAKER
           </Typography>
           <div className={styles.button}>
-            <Button variant="secondary">SEE PRODUCT</Button>
+            <Button href="/products/zx7-speaker" variant="secondary">
+              SEE PRODUCT
+            </Button>
           </div>
         </div>
       </div>
@@ -58,7 +62,9 @@ export const HomeProducts: FC = () => {
             YX1 EARPHONES
           </Typography>
           <div className={styles.button}>
-            <Button variant="secondary">SEE PRODUCT</Button>
+            <Button href="/products/yx1-earphones" variant="secondary">
+              SEE PRODUCT
+            </Button>
           </div>
         </div>
       </div>
