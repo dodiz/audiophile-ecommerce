@@ -51,7 +51,7 @@ export const CartDialog: FC<CartDialogProps> = ({ onHide, show }) => {
           </p>
         </div>
         <Button
-          disabled
+          disabled={items.length === 0}
           href="/checkout"
           variant="primary"
           className={styles.checkout}
