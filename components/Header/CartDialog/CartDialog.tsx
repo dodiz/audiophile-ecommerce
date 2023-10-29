@@ -50,7 +50,12 @@ export const CartDialog: FC<CartDialogProps> = ({ onHide, show }) => {
             )}
           </p>
         </div>
-        <Button href="/checkout" variant="primary" className={styles.checkout}>
+        <Button
+          disabled
+          href="/checkout"
+          variant="primary"
+          className={styles.checkout}
+        >
           Checkout
         </Button>
       </div>

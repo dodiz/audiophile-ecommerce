@@ -8,18 +8,31 @@ export const Button: FC<ButtonProps> = ({
   children,
   variant = "primary",
   href,
+  disabled,
   ...rest
 }) => {
   const variantClassName = useMemo(() => styles[variant], [variant]);
   if (href) {
     return (
-      <Link className={cn(styles.button, variantClassName)} href={href}>
+      <Link
+        aria-disabled={disabled}
+        className={cn(
+          styles.button,
+          variantClassName,
+          disabled && styles.disabled
+        )}
+        href={href}
+      >
         {children}
       </Link>
     );
   }
   return (
-    <button className={cn(styles.button, variantClassName)} {...rest}>
+    <button
+      disabled={disabled}
+      className={cn(styles.button, variantClassName)}
+      {...rest}
+    >
       {children}
     </button>
   );
