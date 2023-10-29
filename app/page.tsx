@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { BeastGear, Categories, Hero, HomeProducts } from "@/components";
+import { BestGear, Categories, Hero, HomeProducts } from "@/components";
 
 const Page: FC = () => {
   return (
@@ -10,7 +10,7 @@ const Page: FC = () => {
         <div className="mt-30">
           <HomeProducts />
         </div>
-        <BeastGear />
+        <BestGear />
       </div>
     </>
   );

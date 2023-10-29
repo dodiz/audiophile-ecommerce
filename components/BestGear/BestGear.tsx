@@ -4,7 +4,7 @@ import { beastGearDesktop } from "@/images";
 import styles from "./BeastGear.module.scss";
 import Image from "next/image";
 
-export const BeastGear: FC = () => {
+export const BestGear: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>

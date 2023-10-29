@@ -1,0 +1,35 @@
+@import "../../styles/variables.scss";
+
+.hero {
+  padding: 18rem 0 10rem 0;
+  background-color: black;
+  .title {
+    color: white;
+    text-align: center;
+  }
+}
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+  max-width: 111rem;
+  margin: 0 auto;
+  margin-top: 16rem;
+  .product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .image {
+      width: 54rem;
+      height: 56rem;
+      border-radius: 0.8rem;
+      background-color: $secondary-300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+}

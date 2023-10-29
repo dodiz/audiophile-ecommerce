@@ -4,5 +4,6 @@ export * from "./Header";
 export * from "./Hero";
 export * from "./Categories";
 export * from "./HomeProducts";
-export * from "./BeastGear";
+export * from "./BestGear";
 export * from "./Footer";
+export * from "./CategoryPage";
