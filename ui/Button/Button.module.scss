@@ -9,6 +9,8 @@
   font-size: 1.3rem;
   letter-spacing: 0.1rem;
   padding: 1.5rem 3.15rem;
+  display: flex;
+  align-items: center;
   &.primary {
     background-color: $primary-200;
     color: $secondary-100;
@@ -34,7 +36,6 @@
   }
   &.tertiary {
     background-color: transparent;
-    display: flex;
     opacity: 0.5;
     gap: 1.3rem;
     &:hover {

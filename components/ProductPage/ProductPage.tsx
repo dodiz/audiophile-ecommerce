@@ -1,13 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 import { BestGear, Categories } from "@/components";
-import { Button, Typography } from "@/ui";
+import { Button, InputAmount, Typography } from "@/ui";
 import styles from "./ProductPage.module.scss";
 import { ProductPageProps } from "./ProductPage.types";
 
 export const ProductPage: FC<ProductPageProps> = ({ product }) => {
+  const [amount, setAmount] = useState(1);
   return (
     <div className={styles.container}>
       <div>
@@ -35,9 +36,7 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
             </Typography>
             <p className={styles.price}>$ {product.price}</p>
             <div className={styles.buttons}>
-              <Button variant="secondary" href={`/products/${product.slug}`}>
-                SEE PRODUCT
-              </Button>
+              <InputAmount onChange={setAmount} value={amount} />
               <Button href={`/products/${product.slug}`}>Add to cart</Button>
             </div>
           </div>
