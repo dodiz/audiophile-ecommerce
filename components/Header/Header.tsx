@@ -1,14 +1,18 @@
 import { FC } from "react";
 import Link from "next/link";
+import classNames from "classnames";
 import { CartIcon, HamburgerIcon, Logo } from "@/ui";
+import { HeaderProps } from "./Header.types";
 import styles from "./Header.module.scss";
 
-export const Header: FC = () => {
+export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
   return (
-    <div className={styles.container}>
+    <div className={classNames(styles.container, styles[variant])}>
       <header className={styles.header}>
         <HamburgerIcon className={styles.hamburger} />
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
         <nav className={styles.menu}>
           <Link className={styles.menuItem} href="/">
             Home

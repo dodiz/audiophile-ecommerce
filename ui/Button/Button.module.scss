@@ -37,5 +37,9 @@
     display: flex;
     opacity: 0.5;
     gap: 1.3rem;
+    &:hover {
+      color: $primary-200;
+      opacity: 1;
+    }
   }
 }

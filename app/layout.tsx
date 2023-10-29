@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import { Manrope } from "next/font/google";
-import { Footer, Header } from "@/components";
+import { Footer } from "@/components";
 import "@/styles/globals.css";
 
 const font = Manrope({
@@ -18,7 +18,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={font.className}>
-        <Header />
         {children}
         <Footer />
       </body>

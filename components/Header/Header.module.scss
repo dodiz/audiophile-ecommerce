@@ -7,6 +7,10 @@
   position: absolute;
   top: 0;
   width: 100%;
+  &.dark-static {
+    background: black;
+    position: static;
+  }
   .header {
     flex: 1;
     max-width: 111rem;

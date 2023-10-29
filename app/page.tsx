@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { BestGear, Categories, Hero, HomeProducts } from "@/components";
+import { BestGear, Categories, Header, Hero, HomeProducts } from "@/components";
 
 const Page: FC = () => {
   return (
     <>
+      <Header />
       <Hero />
       <div className="max-w-[111rem] mx-auto mt-30">
         <Categories />

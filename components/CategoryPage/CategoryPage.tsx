@@ -2,12 +2,8 @@ import { FC } from "react";
 import Image from "next/image";
 import { BestGear, Categories } from "@/components";
 import { Button, Typography } from "@/ui";
+import { CategoryPageProps } from "./CategoryPage.types";
 import styles from "./CategoryPage.module.scss";
-
-type CategoryPageProps = {
-  title: string;
-  products: typeof import("@/data/products").products;
-};
 
 export const CategoryPage: FC<CategoryPageProps> = ({ title, products }) => {
   return (
