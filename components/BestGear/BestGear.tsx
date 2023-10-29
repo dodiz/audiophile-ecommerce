@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { Typography } from "@/ui";
-import { beastGearDesktop } from "@/images";
-import styles from "./BeastGear.module.scss";
 import Image from "next/image";
+import { beastGearDesktop } from "@/images";
+import { Typography } from "@/ui";
+import styles from "./BestGear.module.scss";
 
 export const BestGear: FC = () => {
   return (
