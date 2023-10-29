@@ -5,6 +5,9 @@
   align-items: center;
   padding: 1.5rem;
   gap: 2.5rem;
+  &.small {
+    padding: 0.8rem 1.5rem;
+  }
   .add {
     cursor: pointer;
     padding: 0.3rem 0.5rem;

@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 import { BestGear, Categories } from "@/components";
+import { useCart } from "@/hooks";
 import { Button, InputAmount, Typography } from "@/ui";
-import { useCart } from "@/store";
 import styles from "./ProductPage.module.scss";
 import { ProductPageProps } from "./ProductPage.types";
 
@@ -38,12 +38,12 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
             </Typography>
             <p className={styles.price}>$ {product.price}</p>
             <div className={styles.buttons}>
-              <InputAmount onChange={setAmount} value={amount} />
+              <InputAmount min={1} onChange={setAmount} value={amount} />
               <Button
                 onClick={() =>
                   add({
                     id: product.id,
-                    name: product.name,
+                    name: product.shortName,
                     price: product.price,
                     quantity: amount,
                     image: product.image.desktop,
