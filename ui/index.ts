@@ -7,3 +7,4 @@ export * from "./LoadingSpinner";
 export * from "./InputAmount";
 export * from "./Dialog";
 export * from "./Input";
+export * from "./Radio";
