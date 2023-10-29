@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Categories, Hero, Homepage } from "@/components";
+import { BeastGear, Categories, Hero, HomeProducts } from "@/components";
 
 const Page: FC = () => {
   return (
@@ -8,8 +8,9 @@ const Page: FC = () => {
       <div className="max-w-[111rem] mx-auto mt-30">
         <Categories />
         <div className="mt-30">
-          <Homepage />
+          <HomeProducts />
         </div>
+        <BeastGear />
       </div>
     </>
   );

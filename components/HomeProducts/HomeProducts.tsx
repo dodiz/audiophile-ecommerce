@@ -1,11 +1,15 @@
 import { FC } from "react";
 import Image from "next/image";
 import classNames from "classnames";
-import { speakerZx9Desktop } from "@/images";
+import {
+  speakerZx9Desktop,
+  speakerZx7Desktop,
+  earphonesYX1Desktop,
+} from "@/images";
 import { Button, Typography } from "@/ui";
-import styles from "./Homepage.module.scss";
+import styles from "./HomeProducts.module.scss";
 
-export const Homepage: FC = () => {
+export const HomeProducts: FC = () => {
   return (
     <div className={styles.container}>
       <div className={classNames(styles.box, styles.first)}>
@@ -28,10 +32,30 @@ export const Homepage: FC = () => {
           </div>
         </div>
       </div>
-      <div className={classNames(styles.box, styles.second)}>
+      <div
+        className={classNames(styles.box, styles.second)}
+        style={{
+          backgroundImage: `url(${speakerZx7Desktop.src})`,
+        }}
+      >
         <div className={styles.content}>
-          <Typography variant="title-h2" className={styles.title}>
+          <Typography variant="title-h4" className={styles.title}>
             ZX7 SPEAKER
+          </Typography>
+          <div className={styles.button}>
+            <Button variant="secondary">SEE PRODUCT</Button>
+          </div>
+        </div>
+      </div>
+      <div className={classNames(styles.box, styles.third)}>
+        <Image
+          src={earphonesYX1Desktop}
+          className={styles.image}
+          alt="earphones"
+        />
+        <div className={styles.content}>
+          <Typography variant="title-h4" className={styles.title}>
+            YX1 EARPHONES
           </Typography>
           <div className={styles.button}>
             <Button variant="secondary">SEE PRODUCT</Button>

@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+.container {
+  display: flex;
+  margin: 16rem 0;
+  justify-content: space-between;
+  align-items: center;
+  .image {
+    border-radius: 0.8rem;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    max-width: 45rem;
+    .accent {
+      color: $primary-200;
+    }
+  }
+}
