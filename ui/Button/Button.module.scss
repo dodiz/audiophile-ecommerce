@@ -9,7 +9,7 @@
   font-size: 1.3rem;
   letter-spacing: 0.1rem;
   padding: 1.5rem 3.15rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   &.primary {
     background-color: $primary-200;

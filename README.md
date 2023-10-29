@@ -13,7 +13,7 @@ This is a solution to the [Audiophile e-commerce website challenge on Frontend M
     - [Built with](#built-with)
       - [Javascript main stack](#javascript-main-stack)
       - [Styling](#styling)
-      - [Backend and utils](#backend-and-utils)
+      - [utils](#utils)
     - [Author](#author)
 
 ### The challenge
@@ -46,8 +46,6 @@ Users should be able to:
 - Download [pnpm](https://pnpm.io/installation)
 - Clone the repo
 - Run `pnpm install` to install dependencies
-- Run `pnpm db:push` to push your schema to the database
-  - You might get an env variable error, add NODE_ENV=development to the .env file
 - Run `pnpm dev` to start the development server
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -65,11 +63,11 @@ Users should be able to:
 - CSS custom properties for ui components
 - [classnames] (https://www.npmjs.com/package/classnames) for conditional styling
 
-#### Backend and utils
+#### utils
 
-- [TRPC] (https://trpc.io/) - For server-client communication
 - [NextAuth] (https://next-auth.js.org/) - For authentication
-- [Formik] (https://formik.org/) - For form management
+- [Zustand] (https://docs.pmnd.rs/zustand/) - For cart state management
+- [Formik] (https://formik.org/) - For checkout form management
 - [Zod] (https://zod.dev/) - For validation
 
 ### Author

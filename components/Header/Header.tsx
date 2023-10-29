@@ -1,11 +1,13 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 import { CartIcon, HamburgerIcon, Logo } from "@/ui";
+import { CartDialog } from "./CartDialog";
 import { HeaderProps } from "./Header.types";
 import styles from "./Header.module.scss";
 
 export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
   return (
     <div className={classNames(styles.container, styles[variant])}>
       <header className={styles.header}>
@@ -27,7 +29,11 @@ export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
             Earphones
           </Link>
         </nav>
-        <CartIcon className={styles.cartIcon} />
+        <CartIcon
+          className={styles.cartIcon}
+          onClick={() => setIsCartOpen((p) => !p)}
+        />
+        <CartDialog show={isCartOpen} onHide={() => setIsCartOpen(false)} />
       </header>
     </div>
   );

@@ -4,10 +4,12 @@ import Image from "next/image";
 import classNames from "classnames";
 import { BestGear, Categories } from "@/components";
 import { Button, InputAmount, Typography } from "@/ui";
+import { useCart } from "@/store";
 import styles from "./ProductPage.module.scss";
 import { ProductPageProps } from "./ProductPage.types";
 
 export const ProductPage: FC<ProductPageProps> = ({ product }) => {
+  const { add } = useCart();
   const [amount, setAmount] = useState(1);
   return (
     <div className={styles.container}>
@@ -37,7 +39,19 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
             <p className={styles.price}>$ {product.price}</p>
             <div className={styles.buttons}>
               <InputAmount onChange={setAmount} value={amount} />
-              <Button href={`/products/${product.slug}`}>Add to cart</Button>
+              <Button
+                onClick={() =>
+                  add({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: amount,
+                    image: product.image.desktop,
+                  })
+                }
+              >
+                Add to cart
+              </Button>
             </div>
           </div>
         </div>

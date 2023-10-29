@@ -1,0 +1,30 @@
+.container {
+  background-color: white;
+  width: 37rem;
+  padding: 3.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    .clear {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .products {
+    .product {
+      .info {
+        .image {
+        }
+        .label {
+        }
+      }
+      .total {
+      }
+      .checkout {
+      }
+    }
+  }
+}
