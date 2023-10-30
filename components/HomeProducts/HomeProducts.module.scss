@@ -19,6 +19,7 @@
       position: relative;
     }
     &.first {
+      overflow: hidden;
       transform: translateX(-4rem);
       clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
       height: 56rem;

@@ -2,16 +2,19 @@ import { useEffect, useState } from "react";
 
 export const useResponsive = () => {
   const [screen, setScreen] = useState<"mobile" | "tablet" | "desktop">(
-    typeof window === "undefined"
-      ? "desktop"
-      : window.innerWidth < 768
-      ? "mobile"
-      : window.innerWidth < 1024
-      ? "tablet"
-      : "desktop"
+    "desktop"
   );
 
   useEffect(() => {
+    setScreen(
+      typeof window === "undefined"
+        ? "desktop"
+        : window.innerWidth < 768
+        ? "mobile"
+        : window.innerWidth < 1024
+        ? "tablet"
+        : "desktop"
+    );
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setScreen("mobile");
@@ -21,7 +24,6 @@ export const useResponsive = () => {
         setScreen("desktop");
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

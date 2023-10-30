@@ -5,11 +5,24 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  @include desktop() {
-    background-size: cover;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: #181818;
+    .background {
+      animation: fadeIn 1s ease-in-out forwards;
+      object-fit: cover;
+      opacity: 0;
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+    }
   }
   .hero {
     display: flex;
