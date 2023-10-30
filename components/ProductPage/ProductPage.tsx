@@ -1,8 +1,7 @@
 import { FC, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
-import { BestGear, Categories } from "@/components";
+import { BestGear, Breadcrumb, Categories } from "@/components";
 import { useCart } from "@/hooks";
 import { Button, InputAmount, Typography } from "@/ui";
 import { formatPrice } from "@/utils";
@@ -15,9 +14,7 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
   return (
     <div className={styles.container}>
       <div>
-        <Typography variant="body" className={styles.breadcrumb}>
-          <Link href="/">Go Back</Link>
-        </Typography>
+        <Breadcrumb />
         <div className={styles.product}>
           <div className={styles.imageBox}>
             <Image

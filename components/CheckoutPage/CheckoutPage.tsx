@@ -1,10 +1,10 @@
 import { FC, useMemo, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidate } from "zod-formik-adapter";
+import { Breadcrumb } from "@/components";
 import { useCart } from "@/hooks";
 import { formatPrice } from "@/utils";
 import { Typography, Input, Radio, CashOnDeliveryIcon, Button } from "@/ui";
@@ -65,9 +65,7 @@ export const CheckoutPage: FC = () => {
       <CheckoutSuccessDialog products={orderedItems} />
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <Typography variant="body" className={styles.breadcrumb}>
-            <Link href="/">Go Back</Link>
-          </Typography>
+          <Breadcrumb />
           <div className={styles.boxes}>
             <div className={classNames(styles.box, styles.checkout)}>
               <Typography variant="title-h3">Checkout</Typography>

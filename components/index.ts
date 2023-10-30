@@ -9,3 +9,4 @@ export * from "./Footer";
 export * from "./CategoryPage";
 export * from "./ProductPage";
 export * from "./CheckoutPage";
+export * from "./Breadcrumb";
