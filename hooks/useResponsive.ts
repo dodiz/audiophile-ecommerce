@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 
 export const useResponsive = () => {
   const [screen, setScreen] = useState<"mobile" | "tablet" | "desktop">(
-    "desktop"
+    typeof window === "undefined"
+      ? "desktop"
+      : window.innerWidth < 768
+      ? "mobile"
+      : window.innerWidth < 1024
+      ? "tablet"
+      : "desktop"
   );
 
   useEffect(() => {

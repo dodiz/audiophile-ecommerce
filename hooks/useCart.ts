@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { CartItem } from "@/types";
@@ -10,7 +11,7 @@ type CartState = {
   clear: () => void;
 };
 
-export const useCart = create<CartState>()(
+const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       items: [] as CartItem[],
@@ -52,3 +53,20 @@ export const useCart = create<CartState>()(
     }
   )
 );
+
+export const useCart = () => {
+  const result = useCartStore();
+  const [data, setData] = useState<CartState>({
+    items: [],
+    add: (item: CartItem) => {},
+    remove: (id: number) => {},
+    update: (id: number, quantity: number) => {},
+    clear: () => {},
+  });
+
+  useEffect(() => {
+    setData(result);
+  }, [result]);
+
+  return data;
+};
