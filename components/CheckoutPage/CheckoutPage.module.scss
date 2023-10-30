@@ -9,6 +9,7 @@
     .boxes {
       margin-top: 3.8rem;
       display: flex;
+      align-items: flex-start;
       gap: 3rem;
       .box {
         background-color: white;
@@ -39,10 +40,87 @@
             grid-template-columns: 1fr 1fr;
           }
         }
+        .cash {
+          margin-top: 2rem;
+          display: flex;
+          align-items: center;
+          gap: 3.2rem;
+        }
       }
       .summary {
         padding: 3.3rem;
         width: 35rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+        .products {
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
+          .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6rem;
+            .info {
+              display: flex;
+              gap: 1.6rem;
+              align-items: center;
+              .imageBox {
+                position: relative;
+                width: 6.4rem;
+                height: 6.4rem;
+                .image {
+                  border-radius: 0.8rem;
+                }
+              }
+              .label {
+                font-size: 1.5rem;
+                font-weight: 700;
+                line-height: 2.5rem;
+              }
+              .price {
+                font-size: 1.4rem;
+                font-weight: 700;
+                line-height: 2.5rem;
+                opacity: 0.5;
+              }
+            }
+            .quantity {
+              font-size: 1.5rem;
+              font-weight: 700;
+              opacity: 0.5;
+              line-height: 2.5rem;
+            }
+          }
+        }
+        .total {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+          .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .label {
+              font-size: 1.5rem;
+              font-weight: 500;
+              line-height: 2.5rem;
+              opacity: 0.5;
+              text-transform: uppercase;
+            }
+            .amount {
+              font-size: 1.8rem;
+              font-weight: 700;
+            }
+            &.grand {
+              margin-top: 1.6rem;
+              .amount {
+                color: $primary-200;
+              }
+            }
+          }
+        }
       }
     }
   }

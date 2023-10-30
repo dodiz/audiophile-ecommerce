@@ -1,15 +1,17 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import classNames from "classnames";
 import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidate } from "zod-formik-adapter";
 import { useCart } from "@/hooks";
+import { formatPrice } from "@/utils";
 import { Typography, Input, Radio, CashOnDeliveryIcon, Button } from "@/ui";
 import styles from "./CheckoutPage.module.scss";
 
 export const CheckoutPage: FC = () => {
-  const { clear } = useCart();
+  const { clear, items } = useCart();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -19,7 +21,7 @@ export const CheckoutPage: FC = () => {
       zip: "",
       city: "",
       country: "",
-      isCash: false,
+      isCash: true,
       eMoneyNumber: "",
       eMoneyPin: "",
     },
@@ -45,6 +47,13 @@ export const CheckoutPage: FC = () => {
     ),
     onSubmit: clear,
   });
+  const subTotal = useMemo(() => {
+    return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  }, [items]);
+  const Vat = useMemo(() => {
+    return (subTotal * 20) / 120;
+  }, [subTotal]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -176,8 +185,8 @@ export const CheckoutPage: FC = () => {
               )}
             </div>
             {formik.values.isCash && (
-              <div className="flex gap-8">
-                <CashOnDeliveryIcon />
+              <div className={styles.cash}>
+                <CashOnDeliveryIcon width={120} />
                 <Typography variant="body" className={styles.cash}>
                   The 'Cash on Delivery' option enables you to pay in cash when
                   our delivery courier arrives at your residence. Just make sure
@@ -188,7 +197,46 @@ export const CheckoutPage: FC = () => {
             )}
           </div>
           <div className={classNames(styles.box, styles.summary)}>
-            <Button onClick={() => formik.handleSubmit()}>Confirm Order</Button>
+            <Typography variant="title-h3">Summary</Typography>
+            <div className={styles.products}>
+              {items.map((product) => (
+                <div key={product.id} className={styles.product}>
+                  <div className={styles.info}>
+                    <div className={styles.imageBox}>
+                      <Image alt={product.name} fill src={product.image} />
+                    </div>
+                    <div>
+                      <p className={styles.label}>{product.name}</p>
+                      <p className={styles.price}>
+                        {formatPrice(product.price)}
+                      </p>
+                    </div>
+                  </div>
+                  <div className={styles.quantity}>x{product.quantity}</div>
+                </div>
+              ))}
+              <div className={styles.total}>
+                <div className={styles.row}>
+                  <p className={styles.label}>total</p>
+                  <p className={styles.amount}>{formatPrice(subTotal)}</p>
+                </div>
+                <div className={styles.row}>
+                  <p className={styles.label}>Shipping</p>
+                  <p className={styles.amount}>{formatPrice(50)}</p>
+                </div>
+                <div className={styles.row}>
+                  <p className={styles.label}>Vat (included)</p>
+                  <p className={styles.amount}>{formatPrice(Vat)}</p>
+                </div>
+                <div className={classNames(styles.row, styles.grand)}>
+                  <p className={styles.label}>grand total</p>
+                  <p className={styles.amount}>{formatPrice(subTotal + 50)}</p>
+                </div>
+              </div>
+              <Button onClick={() => formik.handleSubmit()}>
+                Confirm Order
+              </Button>
+            </div>
           </div>
         </div>
       </div>
