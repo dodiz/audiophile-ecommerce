@@ -18,6 +18,12 @@
       content: "";
       position: absolute;
       top: 0;
+      left: 50%;
+      translate: -50%;
+      @include tablet() {
+        left: unset;
+        translate: unset;
+      }
     }
     @include desktop() {
       padding: 7.5rem 0 4.8rem 0;

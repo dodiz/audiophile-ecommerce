@@ -1,10 +1,12 @@
 import { FC } from "react";
 import Image from "next/image";
-import { beastGearDesktop } from "@/images";
+import { bestGearDesktop, bestGearMobile, bestgearTablet } from "@/images";
+import { useResponsive } from "@/hooks";
 import { Typography } from "@/ui";
 import styles from "./BestGear.module.scss";
 
 export const BestGear: FC = () => {
+  const { isMobile, isTablet } = useResponsive();
   return (
     <div className={styles.container}>
       <div className={styles.content} data-aos="fade-left">
@@ -24,7 +26,13 @@ export const BestGear: FC = () => {
       <Image
         data-aos="zoom-in"
         className={styles.image}
-        src={beastGearDesktop}
+        src={
+          isMobile
+            ? bestGearMobile
+            : isTablet
+            ? bestgearTablet
+            : bestGearDesktop
+        }
         alt="beast gear"
       />
     </div>

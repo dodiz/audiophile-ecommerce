@@ -3,13 +3,21 @@ import Image from "next/image";
 import classNames from "classnames";
 import {
   speakerZx9Desktop,
+  speakerZx9Tablet,
+  speakerZx9Mobile,
   speakerZx7Desktop,
+  speakerZx7Tablet,
+  speakerZx7Mobile,
   earphonesYX1Desktop,
+  earphonesYX1Tablet,
+  earphonesYX1Mobile,
 } from "@/images";
+import { useResponsive } from "@/hooks";
 import { Button, Typography } from "@/ui";
 import styles from "./HomeProducts.module.scss";
 
 export const HomeProducts: FC = () => {
+  const { isMobile, isTablet } = useResponsive();
   return (
     <div className={styles.container}>
       <div
@@ -19,7 +27,13 @@ export const HomeProducts: FC = () => {
         <div className={styles.circle} />
         <Image
           className={styles.image}
-          src={speakerZx9Desktop}
+          src={
+            isMobile
+              ? speakerZx9Mobile
+              : isTablet
+              ? speakerZx9Tablet
+              : speakerZx9Desktop
+          }
           alt="earphones"
         />
         <div className={styles.content}>
@@ -40,10 +54,18 @@ export const HomeProducts: FC = () => {
       <div
         data-aos="fade-left"
         className={classNames(styles.box, styles.second)}
-        style={{
-          backgroundImage: `url(${speakerZx7Desktop.src})`,
-        }}
       >
+        <Image
+          className={styles.image}
+          src={
+            isMobile
+              ? speakerZx7Mobile
+              : isTablet
+              ? speakerZx7Tablet
+              : speakerZx7Desktop
+          }
+          alt="speaker"
+        />
         <div className={styles.content}>
           <Typography variant="title-h4" className={styles.title}>
             ZX7 SPEAKER
@@ -60,7 +82,13 @@ export const HomeProducts: FC = () => {
         className={classNames(styles.box, styles.third)}
       >
         <Image
-          src={earphonesYX1Desktop}
+          src={
+            isMobile
+              ? earphonesYX1Mobile
+              : isTablet
+              ? earphonesYX1Tablet
+              : earphonesYX1Desktop
+          }
           className={styles.image}
           alt="earphones"
         />
