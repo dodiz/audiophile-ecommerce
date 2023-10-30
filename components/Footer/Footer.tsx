@@ -32,19 +32,38 @@ export const Footer: FC = () => {
         </div>
         <div className={styles.secondRow}>
           <Typography variant="body" className={styles.description}>
-            Audiophile is an all in one stop to fulfill your audio needs. We're
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility - we're open 7 days a week.
+            Audiophile is an ecommerce webapp made for portfolio purposes only.
+            Challenge and design was provided by <b>Frontend Mentor</b>.<br />
+            <a
+              target="_blank"
+              className={styles.link}
+              href="https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx"
+            >
+              You can check it out here.
+            </a>
+            <br />
+            All code is available to checkout on{" "}
+            <a
+              className={styles.link}
+              href="https://github.com/dodiz/audiophile-ecommerce"
+            >
+              my github repo.
+            </a>
           </Typography>
           <div className={styles.socials}>
-            <FacebookIcon className={styles.social} />
-            <TwitterIcon className={styles.social} />
-            <InstagramIcon className={styles.social} />
+            <a href="https://www.facebook.com/" target="_blank">
+              <FacebookIcon className={styles.social} />
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+              <TwitterIcon className={styles.social} />
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+              <InstagramIcon className={styles.social} />
+            </a>
           </div>
         </div>
         <Typography variant="body" className={styles.copyright}>
-          Copyright 2023. All Rights Reserved
+          Copyright 2023 @dodiz. All Rights Reserved
         </Typography>
       </div>
     </div>

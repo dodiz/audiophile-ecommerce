@@ -66,6 +66,15 @@
       align-items: flex-end;
       justify-content: space-between;
       margin-top: 4.8rem;
+      .link {
+        opacity: 1;
+        text-decoration: none;
+        color: $primary-200;
+        &:hover {
+          color: $primary-100;
+          opacity: 1;
+        }
+      }
       @include tablet() {
         margin-top: 3.6rem;
       }

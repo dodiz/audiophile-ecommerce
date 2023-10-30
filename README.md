@@ -13,7 +13,7 @@ This is a solution to the [Audiophile e-commerce website challenge on Frontend M
     - [Built with](#built-with)
       - [Javascript main stack](#javascript-main-stack)
       - [Styling](#styling)
-      - [utils](#utils)
+      - [Utils](#utils)
     - [Author](#author)
 
 ### The challenge
@@ -60,12 +60,12 @@ Users should be able to:
 #### Styling
 
 - [Tailwind] (https://tailwindcss.com/) - For page styles
-- CSS custom properties for ui components
+- SCSS custom properties for ui components
 - [classnames] (https://www.npmjs.com/package/classnames) for conditional styling
+- [aos] (https://michalsnik.github.io/aos/) for animations
 
-#### utils
+#### Utils
 
-- [NextAuth] (https://next-auth.js.org/) - For authentication
 - [Zustand] (https://docs.pmnd.rs/zustand/) - For cart state management
 - [Formik] (https://formik.org/) - For checkout form management
 - [Zod] (https://zod.dev/) - For validation
