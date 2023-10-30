@@ -11,6 +11,14 @@
     max-width: 111rem;
     padding: 6rem 4rem 4.6rem 4rem;
     position: relative;
+    &::before {
+      width: 10rem;
+      height: 0.4rem;
+      background: $primary-200;
+      content: "";
+      position: absolute;
+      top: 0;
+    }
     @include desktop() {
       padding: 7.5rem 0 4.8rem 0;
     }
