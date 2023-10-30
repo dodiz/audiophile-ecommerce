@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
+import { useCart } from "@/hooks";
 import { CartIcon, HamburgerIcon, Logo } from "@/ui";
 import { CartDialog } from "./CartDialog";
 import { HeaderProps } from "./Header.types";
@@ -15,8 +16,10 @@ const menu = [
 ];
 
 export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
+  const { items } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const pathname = usePathname();
+
   return (
     <>
       <CartDialog show={isCartOpen} onHide={() => setIsCartOpen(false)} />
@@ -40,10 +43,13 @@ export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
               </Link>
             ))}
           </nav>
-          <CartIcon
-            className={styles.cartIcon}
-            onClick={() => setIsCartOpen((p) => !p)}
-          />
+          <div className={styles.cart}>
+            {items.length > 0 && <p className={styles.label}>{items.length}</p>}
+            <CartIcon
+              className={styles.cartIcon}
+              onClick={() => setIsCartOpen((p) => !p)}
+            />
+          </div>
         </header>
       </div>
     </>
