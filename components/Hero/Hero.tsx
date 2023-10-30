@@ -29,9 +29,7 @@ export const Hero: FC = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </Typography>
-        <div>
-          <Button>See Product</Button>
-        </div>
+        <Button href="/products/xx99-mark-two-headphones">See Product</Button>
       </div>
     </div>
   );
