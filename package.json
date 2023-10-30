@@ -10,7 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/aos": "^3.0.6",
     "@types/node": "20.6.0",
+    "aos": "^2.3.4",
     "classnames": "^2.3.2",
     "cookies-next": "^4.0.0",
     "dotenv": "^16.3.1",

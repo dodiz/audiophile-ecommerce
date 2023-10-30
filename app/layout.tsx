@@ -1,7 +1,9 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { Manrope } from "next/font/google";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Footer } from "@/components";
 import "@/styles/globals.css";
 
@@ -11,6 +13,9 @@ const font = Manrope({
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <html lang="en">
       <head>

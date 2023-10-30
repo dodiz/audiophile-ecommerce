@@ -25,8 +25,13 @@ const categories = [
 export const Categories: FC = () => {
   return (
     <div className={styles.container}>
-      {categories.map((category) => (
-        <div className={styles.box} key={category.label}>
+      {categories.map((category, i) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={i * 100}
+          className={styles.box}
+          key={category.label}
+        >
           <Image
             className={styles.image}
             src={category.image}

@@ -7,7 +7,7 @@ import styles from "./BestGear.module.scss";
 export const BestGear: FC = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.content}>
+      <div className={styles.content} data-aos="fade-left">
         <Typography variant="title-h2">
           Bringing you the <span className={styles.accent}>best </span>
           audio gear
@@ -21,7 +21,12 @@ export const BestGear: FC = () => {
           best place to buy your portable audio equipment.
         </Typography>
       </div>
-      <Image className={styles.image} src={beastGearDesktop} alt="beast gear" />
+      <Image
+        data-aos="zoom-in"
+        className={styles.image}
+        src={beastGearDesktop}
+        alt="beast gear"
+      />
     </div>
   );
 };

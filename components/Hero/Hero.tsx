@@ -11,13 +11,14 @@ export const Hero: FC = () => {
     <div className={styles.container}>
       <div className={styles.overlay}>
         <Image
+          data-aos="fade-left"
           fill
           className={styles.background}
           src={isMobile ? heroMobile : isTablet ? heroTablet : heroDesktop}
           alt="hero"
         />
       </div>
-      <div className={styles.hero}>
+      <div className={styles.hero} data-aos="fade-right">
         <Typography variant="overline" className={styles.overline}>
           New Product
         </Typography>

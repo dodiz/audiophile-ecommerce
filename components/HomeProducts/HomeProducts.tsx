@@ -12,7 +12,10 @@ import styles from "./HomeProducts.module.scss";
 export const HomeProducts: FC = () => {
   return (
     <div className={styles.container}>
-      <div className={classNames(styles.box, styles.first)}>
+      <div
+        data-aos="fade-right"
+        className={classNames(styles.box, styles.first)}
+      >
         <div className={styles.circle} />
         <Image
           className={styles.image}
@@ -35,6 +38,7 @@ export const HomeProducts: FC = () => {
         </div>
       </div>
       <div
+        data-aos="fade-left"
         className={classNames(styles.box, styles.second)}
         style={{
           backgroundImage: `url(${speakerZx7Desktop.src})`,
@@ -51,7 +55,10 @@ export const HomeProducts: FC = () => {
           </div>
         </div>
       </div>
-      <div className={classNames(styles.box, styles.third)}>
+      <div
+        data-aos="fade-right"
+        className={classNames(styles.box, styles.third)}
+      >
         <Image
           src={earphonesYX1Desktop}
           className={styles.image}
