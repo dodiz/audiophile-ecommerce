@@ -1,14 +1,15 @@
 import { FC } from "react";
 import Link from "next/link";
 import classNames from "classnames";
-import { toFormikValidate } from "zod-formik-adapter";
-import { Typography, Input, Radio } from "@/ui";
-import styles from "./CheckoutPage.module.scss";
 import { useFormik } from "formik";
 import { z } from "zod";
-import { CashOnDeliveryIcon } from "@/ui/svg/CashOnDeliveryIcon";
+import { toFormikValidate } from "zod-formik-adapter";
+import { useCart } from "@/hooks";
+import { Typography, Input, Radio, CashOnDeliveryIcon, Button } from "@/ui";
+import styles from "./CheckoutPage.module.scss";
 
 export const CheckoutPage: FC = () => {
+  const { clear } = useCart();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -42,9 +43,7 @@ export const CheckoutPage: FC = () => {
         eMoneyPin: z.string(),
       })
     ),
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: clear,
   });
   return (
     <div className={styles.wrapper}>
@@ -188,7 +187,9 @@ export const CheckoutPage: FC = () => {
               </div>
             )}
           </div>
-          <div className={classNames(styles.box, styles.summary)}></div>
+          <div className={classNames(styles.box, styles.summary)}>
+            <Button onClick={() => formik.handleSubmit()}>Confirm Order</Button>
+          </div>
         </div>
       </div>
     </div>

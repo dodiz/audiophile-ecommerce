@@ -9,3 +9,4 @@ export * from "./InstagramIcon";
 export * from "./Logo";
 export * from "./TwitterIcon";
 export * from "./SpinnerIcon";
+export * from "./CashOnDeliveryIcon";
