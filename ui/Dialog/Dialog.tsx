@@ -3,7 +3,12 @@ import { DialogProps } from "./Dialog.types";
 import styles from "./Dialog.module.scss";
 import classNames from "classnames";
 
-export const Dialog: FC<DialogProps> = ({ children, show, onHide }) => {
+export const Dialog: FC<DialogProps> = ({
+  position = "center",
+  children,
+  show,
+  onHide,
+}) => {
   const escapeListener = useCallback(
     (e: KeyboardEvent) => e.key === "Escape" && onHide(),
     [onHide]
@@ -18,7 +23,11 @@ export const Dialog: FC<DialogProps> = ({ children, show, onHide }) => {
 
   return (
     <div
-      className={classNames(styles.backdrop, show && styles.show)}
+      className={classNames(
+        styles.backdrop,
+        show && styles.show,
+        styles[position]
+      )}
       onClick={onHide}
     >
       <div className={styles.wrapper}>

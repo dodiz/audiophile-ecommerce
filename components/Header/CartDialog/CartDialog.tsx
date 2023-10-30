@@ -9,7 +9,7 @@ import styles from "./CartDialog.module.scss";
 export const CartDialog: FC<CartDialogProps> = ({ onHide, show }) => {
   const { items, clear, update } = useCart();
   return (
-    <Dialog show={show} onHide={onHide}>
+    <Dialog position="top-right" show={show} onHide={onHide}>
       <div className={styles.container}>
         <div className={styles.header}>
           <Typography variant="title-h6">Cart ({items.length})</Typography>
