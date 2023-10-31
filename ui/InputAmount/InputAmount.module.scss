@@ -3,14 +3,16 @@
   display: flex;
   background-color: $secondary-300;
   align-items: center;
-  padding: 1.5rem;
-  gap: 2.5rem;
+  gap: 2rem;
   &.small {
-    padding: 0.8rem 1.5rem;
+    gap: 1rem;
+    .add {
+      padding: 1.1rem 2rem;
+    }
   }
   .add {
     cursor: pointer;
-    padding: 0.3rem 0.5rem;
+    padding: 1.8rem 2rem;
     color: black;
     opacity: 0.5;
     font-weight: 700;
