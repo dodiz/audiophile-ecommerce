@@ -23,8 +23,12 @@
   }
   &.top-right {
     .modal {
+      position: absolute;
+      top: 11rem;
+      @include tablet() {
+        right: 2.8rem;
+      }
       @include desktop() {
-        position: absolute;
         top: 13rem;
         right: 10rem;
       }

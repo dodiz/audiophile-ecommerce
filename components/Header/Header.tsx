@@ -2,7 +2,8 @@ import { FC, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
-import { useCart } from "@/hooks";
+import { Categories } from "@/components";
+import { useCart, useClickOutside } from "@/hooks";
 import { CartIcon, HamburgerIcon, Logo } from "@/ui";
 import { CartDialog } from "./CartDialog";
 import { HeaderProps } from "./Header.types";
@@ -18,14 +19,20 @@ const menu = [
 export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
   const { items } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const mobileMenuRef = useClickOutside(() => setIsMenuOpen(false));
 
   return (
     <>
       <CartDialog show={isCartOpen} onHide={() => setIsCartOpen(false)} />
       <div className={classNames(styles.container, styles[variant])}>
         <header className={styles.header}>
-          <HamburgerIcon className={styles.hamburger} />
+          <HamburgerIcon
+            className={styles.hamburger}
+            onClick={() => setIsMenuOpen((p) => !p)}
+          />
           <Link href="/">
             <Logo />
           </Link>
@@ -51,6 +58,12 @@ export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
             />
           </div>
         </header>
+        <div
+          ref={mobileMenuRef}
+          className={classNames(styles.mobileMenu, isMenuOpen && styles.show)}
+        >
+          <Categories />
+        </div>
       </div>
     </>
   );
