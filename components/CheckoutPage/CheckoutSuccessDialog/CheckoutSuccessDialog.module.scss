@@ -1,25 +1,43 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins";
 
 .container {
   border-radius: 0.8rem;
-  padding: 4.8rem;
   background: white;
-  width: 54rem;
+  padding: 3.2rem;
+  @include tablet() {
+    padding: 4.8rem;
+    width: 54rem;
+  }
   .title {
+    margin-top: 2.4rem;
     max-width: 28rem;
-    margin-top: 3.3rem;
+    @include tablet() {
+      margin-top: 3.3rem;
+    }
   }
   .description {
-    margin-top: 2.4rem;
+    margin-top: 1.6rem;
+    @include tablet() {
+      margin-top: 2.4rem;
+    }
   }
   .summary {
     display: flex;
-    margin-top: 3.3rem;
+    flex-direction: column;
+    margin-top: 2.4rem;
+    @include tablet() {
+      flex-direction: row;
+      margin-top: 3.3rem;
+    }
     .left {
       padding: 2.4rem;
       flex: 1;
       background: $secondary-300;
-      border-radius: 0.8rem 0 0.8rem 0.8rem;
+      border-radius: 0.8rem 0.8rem 0 0;
+      @include tablet() {
+        border-radius: 0.8rem 0 0.8rem 0.8rem;
+      }
       .products {
         display: flex;
         flex-direction: column;
@@ -72,14 +90,18 @@
       }
     }
     .right {
-      width: 20rem;
       background: black;
-      border-radius: 0 0.8rem 0.8rem 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.8rem;
       padding: 4rem 3.2rem;
+      border-radius: 0 0 0.8rem 0.8rem;
+      gap: 1.2rem;
+      @include tablet() {
+        gap: 0.8rem;
+        border-radius: 0 0.8rem 0.8rem 0;
+        width: 20rem;
+      }
       &.viewAll {
         justify-content: flex-end;
       }
@@ -101,6 +123,9 @@
   .button {
     display: flex;
     flex-direction: column;
-    margin-top: 4.8rem;
+    margin-top: 2.4rem;
+    @include tablet() {
+      margin-top: 4.8rem;
+    }
   }
 }

@@ -45,10 +45,19 @@ export const CheckoutSuccessDialog: FC<CheckoutSuccessDialogProps> = ({
                 </div>
               ))}
             </div>
-            <div className={styles.line} />
-            <p className={styles.viewAll} onClick={() => setViewAll((p) => !p)}>
-              {viewAll ? "View less" : "View more"}
-            </p>
+            {products.length > 1 && (
+              <>
+                <div className={styles.line} />
+                <p
+                  className={styles.viewAll}
+                  onClick={() => setViewAll((p) => !p)}
+                >
+                  {viewAll
+                    ? "View less"
+                    : `and ${products.length - 1} other item(s)`}
+                </p>
+              </>
+            )}
           </div>
           <div className={classNames(styles.right, viewAll && styles.viewAll)}>
             <p className={styles.label}>Grand total</p>
