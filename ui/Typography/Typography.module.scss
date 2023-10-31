@@ -1,4 +1,5 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins";
 
 .title {
   color: $secondary-500;
@@ -15,9 +16,14 @@
 
 .h2 {
   @extend .title;
-  font-size: 4rem;
-  line-height: 4.4rem;
-  letter-spacing: 0.143rem;
+  font-size: 2.8rem;
+  letter-spacing: 0.1rem;
+  line-height: normal;
+  @include tablet() {
+    letter-spacing: 0.143rem;
+    line-height: 4.4rem;
+    font-size: 4rem;
+  }
 }
 
 .h3 {

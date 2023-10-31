@@ -1,11 +1,13 @@
 import { FC } from "react";
 import Image from "next/image";
 import { BestGear, Categories } from "@/components";
+import { useResponsive } from "@/hooks";
 import { Button, Typography } from "@/ui";
 import { CategoryPageProps } from "./CategoryPage.types";
 import styles from "./CategoryPage.module.scss";
 
 export const CategoryPage: FC<CategoryPageProps> = ({ title, products }) => {
+  const { isMobile, isTablet } = useResponsive();
   return (
     <>
       <div className={styles.hero}>
@@ -21,8 +23,14 @@ export const CategoryPage: FC<CategoryPageProps> = ({ title, products }) => {
                 <Image
                   className={styles.image}
                   fill
-                  src={product.image.desktop}
                   alt={product.name}
+                  src={
+                    isMobile
+                      ? product.categoryImage.mobile
+                      : isTablet
+                      ? product.categoryImage.tablet
+                      : product.categoryImage.desktop
+                  }
                 />
               </div>
               <div className={styles.content}>
@@ -31,7 +39,9 @@ export const CategoryPage: FC<CategoryPageProps> = ({ title, products }) => {
                     NEW PRODUCT
                   </Typography>
                 )}
-                <Typography variant="title-h2">{product.name}</Typography>
+                <Typography variant="title-h2" className={styles.name}>
+                  {product.name}
+                </Typography>
                 <Typography variant="body" className={styles.description}>
                   {product.description}
                 </Typography>

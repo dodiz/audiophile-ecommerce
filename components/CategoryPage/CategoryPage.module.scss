@@ -1,49 +1,103 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins";
 
 .hero {
-  padding: 18rem 0 10rem 0;
   background-color: black;
   .title {
     color: white;
     text-align: center;
   }
+  padding: 12rem 0 3.2rem 0;
+  @include tablet() {
+    padding: 18rem 0 10rem 0;
+  }
 }
 .container {
   max-width: 111rem;
-  margin: 0 auto;
-  margin-top: 16rem;
-
+  margin: 6.4rem 2.4rem 0 2.4rem;
+  @include tablet() {
+    margin: 12rem 4rem 0 4rem;
+  }
+  @include desktop() {
+    margin: 16rem auto 0 auto;
+  }
   .products {
     display: flex;
     flex-direction: column;
-    gap: 16rem;
     margin: 0 auto;
+    gap: 12rem;
+    @include desktop() {
+      gap: 16rem;
+    }
     .product {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-direction: column;
+      gap: 5.2rem;
+      @include desktop() {
+        flex-direction: row;
+        gap: 0;
+      }
       .content {
-        max-width: 44rem;
+        max-width: 57rem;
+        text-align: center;
+        @include desktop() {
+          text-align: left;
+          max-width: 44rem;
+        }
         .overline {
-          margin-bottom: 1.6rem;
+          margin-bottom: 2.4rem;
+          @include tablet() {
+            margin-bottom: 1.6rem;
+          }
+        }
+        .name {
+          max-width: 30rem;
+          margin: 0 auto;
+          @include desktop() {
+            margin: 0;
+            max-width: none;
+          }
         }
         .description {
-          margin-top: 3.2rem;
+          margin-top: 2.4rem;
+          @include tablet() {
+            margin-top: 3.2rem;
+          }
         }
         .button {
-          margin-top: 4rem;
+          margin-top: 2.4rem;
+          @include desktop() {
+            margin-top: 4rem;
+          }
         }
       }
       .imageBox {
         position: relative;
-        width: 54rem;
-        height: 56rem;
+        width: 100%;
+        height: 35rem;
+        background: $secondary-300;
+        border-radius: 0.8rem;
+        display: flex;
+        justify-content: center;
+        max-width: 33rem;
+        @include tablet() {
+          max-width: 69rem;
+        }
+        @include desktop() {
+          max-width: none;
+          width: 54rem;
+          height: 56rem;
+        }
         .image {
           border-radius: 0.8rem;
         }
       }
       &:nth-child(even) {
-        flex-direction: row-reverse;
+        @include desktop() {
+          flex-direction: row-reverse;
+        }
       }
     }
   }
