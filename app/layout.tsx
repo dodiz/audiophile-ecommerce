@@ -14,7 +14,9 @@ const font = Manrope({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
   }, []);
   return (
     <html lang="en">

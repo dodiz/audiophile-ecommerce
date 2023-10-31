@@ -4,7 +4,7 @@ import { Header } from "@/components";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Header variant="dark-static" />
+      <Header variant="dark" />
       {children}
     </>
   );

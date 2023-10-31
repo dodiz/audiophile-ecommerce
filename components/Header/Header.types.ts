@@ -1,3 +1,3 @@
 export type HeaderProps = {
-  variant?: "absolute" | "dark-static";
+  variant?: "absolute" | "dark";
 };

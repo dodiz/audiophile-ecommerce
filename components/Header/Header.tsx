@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { ElementRef, FC, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
@@ -21,14 +21,39 @@ export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const headerRef = useRef<ElementRef<"div">>(null);
 
+  useEffect(() => {
+    if (!headerRef.current) return;
+    if (window.scrollY > headerRef.current.getBoundingClientRect().height) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+    const handleScroll = () => {
+      if (window.scrollY > headerRef.current!.getBoundingClientRect().height) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [headerRef]);
   const mobileMenuRef = useClickOutside(() => setIsMenuOpen(false));
 
   return (
     <>
       <CartDialog show={isCartOpen} onHide={() => setIsCartOpen(false)} />
-      <div className={classNames(styles.container, styles[variant])}>
-        <header className={styles.header}>
+      <div
+        className={classNames(
+          styles.container,
+          styles[variant],
+          isScrolled && styles.scrolled
+        )}
+      >
+        <header ref={headerRef} className={styles.header}>
           <HamburgerIcon
             className={styles.hamburger}
             onClick={() => setIsMenuOpen((p) => !p)}
@@ -58,12 +83,15 @@ export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
             />
           </div>
         </header>
-        <div
-          ref={mobileMenuRef}
-          className={classNames(styles.mobileMenu, isMenuOpen && styles.show)}
-        >
-          <Categories />
-        </div>
+        {isMenuOpen && (
+          <div
+            ref={mobileMenuRef}
+            data-aos="slide-right"
+            className={styles.mobileMenu}
+          >
+            <Categories />
+          </div>
+        )}
       </div>
     </>
   );

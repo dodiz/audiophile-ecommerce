@@ -5,15 +5,15 @@
   max-width: 111rem;
   display: flex;
   flex-direction: column;
-  margin: 1.6rem 2.4rem 0 2.4rem;
+  margin: 11.6rem 2.4rem 0 2.4rem;
   gap: 8.8rem;
   @include tablet() {
-    margin: 3.3rem 4rem 0 4rem;
+    margin: 13.3rem 4rem 0 4rem;
     gap: 12rem;
   }
   @include desktop() {
     gap: 16rem;
-    margin: 8rem auto 0 auto;
+    margin: 18rem auto 0 auto;
   }
   .product {
     display: flex;
