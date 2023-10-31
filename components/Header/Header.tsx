@@ -32,7 +32,8 @@ export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
       setIsScrolled(false);
     }
     const handleScroll = () => {
-      if (window.scrollY > headerRef.current!.getBoundingClientRect().height) {
+      if (!headerRef.current) return;
+      if (window.scrollY > headerRef.current.getBoundingClientRect().height) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
