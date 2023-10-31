@@ -1,28 +1,20 @@
-import { FC, useMemo } from "react";
-import cn from "classnames";
+import { FC } from "react";
+import Link from "next/link";
+import classNames from "classnames";
 import { ButtonProps } from "./Button.types";
 import styles from "./Button.module.scss";
-import Link from "next/link";
 
 export const Button: FC<ButtonProps> = ({
   children,
   variant = "primary",
   href,
   disabled,
+  className,
   ...rest
 }) => {
-  const variantClassName = useMemo(() => styles[variant], [variant]);
-  if (href) {
+  if (!disabled && href) {
     return (
-      <Link
-        aria-disabled={disabled}
-        className={cn(
-          styles.button,
-          variantClassName,
-          disabled && styles.disabled
-        )}
-        href={href}
-      >
+      <Link className={classNames(styles.button, styles[variant])} href={href}>
         {children}
       </Link>
     );
@@ -30,7 +22,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled}
-      className={cn(styles.button, variantClassName)}
+      className={classNames(styles.button, styles[variant])}
       {...rest}
     >
       {children}

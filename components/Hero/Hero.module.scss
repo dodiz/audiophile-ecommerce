@@ -24,26 +24,36 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 0 8rem;
+    gap: 1.8rem;
+    width: 100%;
+    max-width: 111rem;
     @include desktop() {
       align-items: flex-start;
       text-align: left;
     }
-    gap: 1.8rem;
-    width: 100%;
-    max-width: 111rem;
     .overline {
       color: $secondary-100;
       opacity: 0.5;
     }
     .title {
       color: $secondary-100;
-      width: 40rem;
+      width: 100%;
+      font-size: 3.6rem;
+      line-height: 4rem;
+      @include tablet() {
+        font-size: 5.6rem;
+        line-height: 5.8rem;
+      }
+      @include desktop() {
+        width: 40rem;
+      }
     }
     .subtitle {
       color: $secondary-100;
       width: 35rem;
       opacity: 0.75;
-      line-height: 2.5rem;
+      line-height: 3rem;
     }
   }
 }

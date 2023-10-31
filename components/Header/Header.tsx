@@ -84,11 +84,7 @@ export const Header: FC<HeaderProps> = ({ variant = "absolute" }) => {
           </div>
         </header>
         {isMenuOpen && (
-          <div
-            ref={mobileMenuRef}
-            data-aos="slide-right"
-            className={styles.mobileMenu}
-          >
+          <div ref={mobileMenuRef} className={styles.mobileMenu}>
             <Categories />
           </div>
         )}

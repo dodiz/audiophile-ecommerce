@@ -18,11 +18,14 @@
     border-radius: 0.8rem;
     background: $secondary-300;
     padding-bottom: 1rem;
-    width: 35rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 29rem;
+    @include tablet {
+      width: 35rem;
+    }
     .image {
       width: 18rem;
       margin-top: -6rem;
