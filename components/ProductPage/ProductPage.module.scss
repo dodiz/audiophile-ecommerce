@@ -1,26 +1,59 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins";
+
 .container {
   max-width: 111rem;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 16rem;
-  margin-top: 8rem;
-  .breadcrumb {
-    margin-top: 8rem;
+  margin: 1.6rem 2.4rem 0 2.4rem;
+  gap: 8.8rem;
+  @include tablet() {
+    margin: 3.3rem 4rem 0 4rem;
+    gap: 12rem;
+  }
+  @include desktop() {
+    gap: 16rem;
+    margin: 8rem auto 0 auto;
   }
   .product {
-    margin-top: 5.6rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    margin-top: 2.4rem;
+    flex-direction: column;
+    gap: 4rem;
+    @include tablet {
+      gap: 7rem;
+      flex-direction: row;
+    }
+    @include desktop() {
+      margin-top: 5.6rem;
+      gap: 0;
+      justify-content: space-between;
+    }
     .content {
-      max-width: 44rem;
+      @include desktop() {
+        max-width: 44rem;
+      }
       .overline {
         margin-bottom: 1.6rem;
       }
+      .name {
+        @include tablet() {
+          font-size: 2.8rem;
+        }
+        @include desktop() {
+          font-size: 4rem;
+        }
+      }
       .description {
         margin-top: 3.2rem;
+        @include tablet() {
+          max-width: 34rem;
+        }
+        @include desktop() {
+          max-width: none;
+        }
       }
       .price {
         margin-top: 3.2rem;
@@ -30,15 +63,26 @@
         letter-spacing: 1.286px;
       }
       .buttons {
-        margin-top: 4.7rem;
+        margin-top: 3.2rem;
+        @include desktop() {
+          margin-top: 4.7rem;
+        }
         display: flex;
         gap: 1.6rem;
       }
     }
     .imageBox {
       position: relative;
-      width: 54rem;
-      height: 56rem;
+      width: 33rem;
+      height: 33rem;
+      @include tablet() {
+        width: 28rem;
+        height: 48rem;
+      }
+      @include desktop() {
+        width: 54rem;
+        height: 56rem;
+      }
       .image {
         border-radius: 0.8rem;
       }
@@ -47,17 +91,34 @@
   .details {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    gap: 12rem;
+    @include desktop() {
+      gap: 0;
+      flex-direction: row;
+    }
     .features {
       display: flex;
       flex-direction: column;
       gap: 3.2rem;
-      max-width: 63rem;
+      @include desktop() {
+        max-width: 63rem;
+      }
     }
     .inBox {
       display: flex;
+      justify-content: space-between;
       flex-direction: column;
-      gap: 3.2rem;
-      width: 35rem;
+      gap: 2.4rem;
+      @include tablet() {
+        gap: 8rem;
+        flex-direction: row;
+      }
+      @include desktop() {
+        flex-direction: column;
+        gap: 3.2rem;
+        width: 35rem;
+      }
       .includes {
         display: flex;
         flex-direction: column;
@@ -78,17 +139,28 @@
   }
   .gallery {
     display: grid;
-    gap: 3.2rem;
-    grid-template: 28rem 28rem / 44rem 1fr;
+    gap: 2.4rem;
+    margin: 0 auto;
+    grid-template: 18rem 18rem 33rem / 37rem;
+    @include tablet() {
+      grid-template: 17rem 17rem / 28rem 37rem;
+      gap: 1.8rem;
+    }
+    @include desktop() {
+      grid-template: 28rem 28rem / 44rem 63.5rem;
+      gap: 3.2rem;
+    }
     .galleryImage {
       position: relative;
       .image {
         border-radius: 0.8rem;
       }
       &.big {
-        grid-row-start: 1;
-        grid-row-end: 3;
-        grid-column-start: 2;
+        @include tablet() {
+          grid-row-start: 1;
+          grid-row-end: 3;
+          grid-column-start: 2;
+        }
       }
     }
   }
@@ -96,20 +168,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6.4rem;
+    gap: 4rem;
+    @include tablet() {
+      gap: 5.6rem;
+    }
+    @include desktop() {
+      gap: 6.4rem;
+    }
     .list {
       display: flex;
-      gap: 3rem;
       justify-content: center;
+      flex-direction: column;
+      gap: 5.6rem;
+      @include tablet() {
+        flex-direction: row;
+        gap: 1rem;
+      }
+      @include desktop() {
+        gap: 3rem;
+      }
       .item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 3.6rem;
+        gap: 3.2rem;
+        @include tablet() {
+          gap: 4.2rem;
+        }
+        @include desktop() {
+          gap: 3.6rem;
+        }
         .imageContainer {
           position: relative;
-          width: 35rem;
-          height: 32rem;
+          width: 33rem;
+          height: 12rem;
+          @include tablet() {
+            width: 22rem;
+            height: 32rem;
+          }
+          @include desktop() {
+            width: 35rem;
+            height: 32rem;
+          }
           .image {
             border-radius: 0.8rem;
           }

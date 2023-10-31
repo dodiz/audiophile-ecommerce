@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import { BestGear, Breadcrumb, Categories } from "@/components";
-import { useCart } from "@/hooks";
+import { useCart, useResponsive } from "@/hooks";
 import { Button, InputAmount, Typography } from "@/ui";
 import { formatPrice } from "@/utils";
 import styles from "./ProductPage.module.scss";
@@ -11,6 +11,7 @@ import { ProductPageProps } from "./ProductPage.types";
 export const ProductPage: FC<ProductPageProps> = ({ product }) => {
   const { add } = useCart();
   const [amount, setAmount] = useState(1);
+  const { isMobile, isTablet } = useResponsive();
   return (
     <div className={styles.container}>
       <div>
@@ -20,7 +21,13 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
             <Image
               className={styles.image}
               fill
-              src={product.image.desktop}
+              src={
+                isMobile
+                  ? product.image.mobile
+                  : isTablet
+                  ? product.image.tablet
+                  : product.image.desktop
+              }
               alt={product.name}
             />
           </div>
@@ -30,7 +37,9 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
                 NEW PRODUCT
               </Typography>
             )}
-            <Typography variant="title-h2">{product.name}</Typography>
+            <Typography variant="title-h2" className={styles.name}>
+              {product.name}
+            </Typography>
             <Typography variant="body" className={styles.description}>
               {product.description}
             </Typography>
@@ -78,7 +87,13 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
           <Image
             className={styles.image}
             fill
-            src={product.gallery.first.desktop}
+            src={
+              isMobile
+                ? product.gallery.first.mobile
+                : isTablet
+                ? product.gallery.first.tablet
+                : product.gallery.first.desktop
+            }
             alt={product.name}
           />
         </div>
@@ -86,7 +101,13 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
           <Image
             className={styles.image}
             fill
-            src={product.gallery.second.desktop}
+            src={
+              isMobile
+                ? product.gallery.second.mobile
+                : isTablet
+                ? product.gallery.second.tablet
+                : product.gallery.second.desktop
+            }
             alt={product.name}
           />
         </div>
@@ -94,7 +115,13 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
           <Image
             className={styles.image}
             fill
-            src={product.gallery.third.desktop}
+            src={
+              isMobile
+                ? product.gallery.third.mobile
+                : isTablet
+                ? product.gallery.third.tablet
+                : product.gallery.third.desktop
+            }
             alt={product.name}
           />
         </div>
@@ -108,11 +135,17 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
                 <Image
                   className={styles.image}
                   fill
-                  src={other.image.desktop}
+                  src={
+                    isMobile
+                      ? other.image.mobile
+                      : isTablet
+                      ? other.image.tablet
+                      : other.image.desktop
+                  }
                   alt={other.name}
                 />
               </div>
-              <Typography variant="title-h4">{other.name}</Typography>
+              <Typography variant="title-h5">{other.name}</Typography>
               <Button href={`/products/${other.slug}`}>See product</Button>
             </div>
           ))}

@@ -5,10 +5,10 @@ import styles from "./Breadcrumb.module.scss";
 export const Breadcrumb = () => {
   const router = useRouter();
   return (
-    <p onClick={() => router.back()}>
+    <div onClick={() => router.back()}>
       <Typography variant="body" className={styles.breadcrumb}>
         Go Back
       </Typography>
-    </p>
+    </div>
   );
 };
