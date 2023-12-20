@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Task manager](https://task-manager-ten-pi.vercel.app)
+- Solution [URL](https://audiophile-ecommerce-black.vercel.app/)
 
 ### How to run
 
